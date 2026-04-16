@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Castle Card Clash</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="top-hud" aria-label="Castle status">
+        <div class="castle-panel player-panel">
+          <span class="side-label">Player Castle</span>
+          <div class="hp-track"><div id="playerHpFill" class="hp-fill player"></div></div>
+          <span id="playerHpText" class="hp-text">3000 / 3000</span>
+        </div>
+        <div class="match-title">
+          <strong>Castle Card Clash</strong>
+          <span id="matchTimer">00:00</span>
+        </div>
+        <div class="castle-panel enemy-panel">
+          <span class="side-label">Enemy Castle</span>
+          <div class="hp-track"><div id="enemyHpFill" class="hp-fill enemy"></div></div>
+          <span id="enemyHpText" class="hp-text">3000 / 3000</span>
+        </div>
+      </section>
+
+      <section class="battle-wrap" aria-label="Battlefield">
+        <canvas id="gameCanvas" width="1200" height="620"></canvas>
+        <div id="dragGhost" class="drag-ghost hidden" aria-hidden="true"></div>
+        <div id="dropMessage" class="drop-message hidden" aria-live="polite">Deploy inside the glowing zone</div>
+        <div id="endOverlay" class="end-overlay hidden" role="dialog" aria-modal="true">
+          <div class="end-copy">
+            <span id="endEyebrow">Battle Complete</span>
+            <h1 id="endTitle">Victory</h1>
+            <p id="endDetail">The enemy castle has fallen.</p>
+            <button id="restartButton" type="button">Restart</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-hud" aria-label="Cards and mana">
+        <div class="mana-panel">
+          <div class="mana-label">
+            <span>Mana</span>
+            <strong id="manaText">5 / 10</strong>
+          </div>
+          <div class="mana-shell" aria-label="Mana bar">
+            <div class="mana-sigil" aria-hidden="true"></div>
+            <div class="mana-bar">
+              <div id="manaSteps" class="mana-steps"></div>
+            </div>
+          </div>
+        </div>
+        <div id="hand" class="hand" aria-label="Playable cards"></div>
+        <div class="next-card-panel" aria-label="Next card">
+          <span>Next</span>
+          <div id="nextCard" class="next-card-slot"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
